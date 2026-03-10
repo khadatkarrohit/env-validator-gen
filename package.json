@@ -1,0 +1,42 @@
+{
+  "name": "env-validator-gen",
+  "version": "1.0.0",
+  "description": "Scan source files for process.env usage and generate a Zod validation schema that fails fast on missing variables",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "env-validator-gen": "src/index.ts"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "test": "node --import tsx/esm --test tests/**/*.test.ts",
+    "prepublishOnly": "npm test && npm run build"
+  },
+  "keywords": [
+    "env",
+    "environment",
+    "zod",
+    "validation",
+    "dotenv",
+    "typescript",
+    "codegen",
+    "cli"
+  ],
+  "author": "Rohit Khadatkar",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^14.0.3",
+    "picocolors": "^1.1.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.6",
+    "@types/node": "^25.4.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
